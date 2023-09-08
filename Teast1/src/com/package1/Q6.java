@@ -4,16 +4,15 @@ public class Q6 {
 	public static int food(int r,int unit, int n, int [] arr) {
 		int total_food_need=r*2;
 		int amount_food=0;
-		
+		if(arr.length<=0) {
+			return 0;
+		}
 		for(int i=0;i<arr.length;i++) {
-			if(i%2!=0) {
-				System.out.println(i);
-				amount_food=arr[i];
-				total_food_need=total_food_need-amount_food;
-				if(total_food_need>=0 ) {
+			if(i%2==0) {
+				amount_food =amount_food+arr[i];
+				if(amount_food>=total_food_need) {
 					return arr[i+1];
 				}
-				
 			}
 		}
 		return -1;
